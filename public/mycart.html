@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Cart</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    h1 { margin-bottom: 20px; }
+    .cart-item {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+      gap: 20px;
+    }
+    .cart-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .info { flex-grow: 1; }
+    .price { color: green; font-weight: bold; }
+    button {
+      background: red;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover { background: darkred; }
+  </style>
+</head>
+<body>
+  <h1>My Cart</h1>
+  <div id="cart-container"></div>
+  <button onclick="window.location.href='payment.html'">Proceed to Payment</button>
+  <script>
+   const useremail = localStorage.getItem('email');
+
+async function loadCart() {
+  try {
+    const res = await fetch(`/Mycart/${useremail}`);
+    const data = await res.json();
+    console.log("Cart Response:", data);
+
+    const container = document.getElementById("cart-container");
+    container.innerHTML = "";
+
+    if (!data.products || data.products.length === 0) {
+      container.innerHTML = "<p>Your cart is empty.</p>";
+      return;
+    }
+
+    data.products.forEach(item => {
+      const div = document.createElement("div");
+      div.classList.add("cart-item");
+      div.innerHTML = `
+        <img src="${item.image}" alt="">
+        <div class="info">
+          <h3>${item.name}</h3>
+          <p>${item.desc}</p>
+          <p class="price">₹${item.price}</p>
+          <p>Quantity: ${item.quantity}</p>
+        </div>
+      `;
+      container.appendChild(div);
+    });
+  } catch (err) {
+    console.error(err);
+    alert("Error loading cart");
+  }
+}
+
+loadCart();
+
+  </script>
+</body>
+</html>

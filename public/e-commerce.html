@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+ 
+    nav img {
+       border-radius: 10px;
+    }
+    nav {
+        background-color: #000000;
+        color: white;
+        padding: 10px;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        transition: background-color 0.3s ease;
+        z-index: 1000;
+    }
+    #nav-links a {
+        color: white;
+        text-decoration: none;
+        padding: 10px;
+        margin: 0 5px;   
+        transition: color 0.3s ease, background-color 0.3s ease;                   
+    }
+    #nav-links a:hover {                                                       
+        background-color: #555;
+        border-radius: 10px;
+    }
+    input[type="text"] {
+        padding: 5px;
+        border: none;
+        border-radius: 5px;
+    }
+    #hero {
+        
+        background-image: url('https://images.pexels.com/photos/2387793/pexels-photo-2387793.jpeg?cs=srgb&dl=pexels-adrien-olichon-1257089-2387793.jpg&fm=jpg');
+        background-size: cover;
+        background-position: center;
+        height: 400px;
+    }
+    .scrolled #nav-links a {
+  color: black; 
+}
+
+.scrolled #nav-links a:hover {
+  background-color: #ddd; 
+}
+    .content {
+  height: 1500px;
+  background-color: white;
+}
+  .scrolled {
+  background-color: white;
+  color: black;
+}
+#child1 {
+  padding: 20px;
+  height: 400px;
+  border: 1px solid #ccc;
+}
+
+.content{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 700px;
+    background-color: #f4f2f2;
+}
+button{
+    background-color: rgb(0, 60, 255);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+#child3 {
+    width: 150px;
+    height: 500px;
+    position: absolute;
+    top: 340px;
+    left: 541px;
+    border-radius: 10px;
+    background-image: url('https://creativethemes.com/blocksy/wp-content/uploads/2024/04/Main-Image.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+}
+#child1{
+    width: 450px;
+    height: 700px;
+    background-image: url('https://creativethemes.com/blocksy/wp-content/uploads/2024/04/Main-Image.jpg');
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 250px;
+    left: 50px;
+    border-radius: 10px;
+}  
+#child2{
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top: 400px;
+    left: 690px;
+    border-radius: 10px;
+    padding: 20px 30px;
+    
+}
+body {
+        font-family:cursive;
+        background: #f4f2f2;
+        margin: 0;
+        padding: 0;
+    }
+    .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 9fr));
+        gap: 40px;
+        max-width: 1000px;
+        margin: 50px auto;
+        padding: 0 20px;
+    }
+    .feature-box {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .icon {
+        background: #e7f8ed;
+        border-radius: 8px;
+        padding: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .icon svg {
+        width: 24px;
+        height: 24px;
+        fill: #22c55e;
+    }
+
+    h3 {
+        margin: 0;
+        font-size: 1.1rem;
+    }
+
+    p {
+        margin: 5px 0 0;
+        color: #555;
+        font-size: 0.9rem;
+    }
+   #imgoffourdivs-1 {
+        background-image: url('https://creativethemes.com/blocksy/wp-content/uploads/2024/04/gallery_image_1.jpg');
+    }
+     #imgoffourdivs-2 {
+        background-image: url('https://www.elegantthemes.com/layouts/wp-content/uploads/2018/01/pottery-studio_landing.jpg');
+    }
+     #imgoffourdivs-3 {
+        background-image: url('https://www.elegantthemes.com/layouts/wp-content/uploads/2018/01/pottery-studio_gallery.jpg');
+    }
+     #imgoffourdivs-4 {
+        background-image: url('https://creativethemes.com/blocksy/wp-content/uploads/2024/04/gallery_image_3.jpg');
+    }
+    .images {
+         background-position: center;
+        background-size: cover;
+        width: 250px;
+        height: 400px;
+        border: 1px solid #080707;
+        border-radius: 10px;
+        display: inline-block;
+        margin: 30px;
+        transition: 1s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    pre:hover{
+        color: #3b08f2;
+    }
+    .images:hover {
+     -webkit-transform: scale(1.2);
+     -ms-transform: scale(1.2);
+    transform: scale(1.2);
+    transition: 1s ease;
+    filter: blur(1px);
+    }
+    .product-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+
+    .product-card:hover {
+      transform: scale(1.05);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .product-info h3 {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    .product-info p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .price {
+      margin-top: 8px;
+      font-weight: bold;
+      color: #e63946;
+    }
+/* Newsletter */
+.newsletter {
+  background:white;
+  padding: 40px;
+  text-align: center;
+  border-radius: 8px;
+  max-width: 900px;
+  margin: 40px auto;
+}
+
+.newsletter h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.newsletter p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.newsletter-form input[type="email"] {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  flex: 1;
+  min-width: 250px;
+  font-size: 15px;
+}
+
+.newsletter-form button {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.newsletter-form button:hover {
+  background: #1e4fd3;
+}
+
+.newsletter-agree {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #666;
+  text-align: left;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.newsletter-agree input {
+  margin-right: 6px;
+}
+
+/* Footer */
+.footer {
+  background: #fff;
+  padding: 40px 20px;
+  border-top: 1px solid #e5e7eb;
+  margin-top: 40px;
+}
+
+.footer-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.footer-col h4 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #222;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 8px;
+}
+
+.footer-col ul li a {
+  text-decoration: none;
+  color: #555;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+  color: #2563eb;
+}
+#mycart{
+  text-decoration: none;
+  color: #ccc;
+}
+</style>
+<body>
+    <nav>
+        <img src="download-removebg-preview.png" alt="Logo" height="60" width="90" >
+        <div id="nav-links">
+            <a href="#">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="#">About</a>
+            <a href="#Contact">Contact</a>
+        </div>
+        <div>
+          <img src="https://img.favpng.com/3/9/19/shopping-cart-logo-shopping-bags-trolleys-png-favpng-h2qvxF41UbVd23Kk2iTKZtCug.jpg" height="60px" width="60px">
+           <a href="mycart.html" id="mycart">My Cart</a>
+        </div>
+    </nav>
+            <div id="hero">
+            </div>
+
+    <div class="content">
+   <div id="child1">
+       
+   </div>
+   <div id="child3">
+
+   </div>
+   <div id="child2">
+<h1>
+    Pottery
+</h1>
+<pre><strong> Pro > Home > Starter Sites > Ecommerce > Pottery</strong></pre>
+
+<h3>Pottery is an art, and so is this starter site.</h3><br>
+<hr>
+<br>
+<p>With a beautiful design which can help you jump-start your<br> hand made shop, Pottery is the perfect starter site to<br> choose. A dark palette that’s easy on the eyes, accented by <br> muted colours, really let your products and information<br> shine on the page.
+</p>
+<p>
+    Ready to import in just two clicks, we’re sure that our Pottery site will turn heads around.
+</p>
+<br>
+<hr><br>
+ <strong>Works with:</strong> Gutenberg, Elementor<br><br>
+ <strong>Required plans:</strong> Business or Agency<br><br>
+<strong>Category:</strong> Ecommerce, Business, Personal<br><br>
+<strong>Bundled plugins:</strong> Fluent Forms, Greenshift<br><br>
+
+<button>View Live Demo</button>
+   </div>
+</div>
+
+<div class="features">
+    <div class="feature-box">
+        <div class="icon">
+            <svg viewBox="0 0 24 24"><path d="M20.285 2.859l-11.607 11.607-4.963-4.963-2.121 2.121 7.084 7.084 13.728-13.728z"/></svg>
+        </div>
+        <div>
+            <h3>Pixel Perfect Design</h3>
+            <p>Pixel perfect accuracy with latest web trends at your fingertips without any coding needed.</p>
+        </div>
+    </div>
+
+    <div class="feature-box">
+        <div class="icon">
+            <svg viewBox="0 0 24 24"><path d="M20.285 2.859l-11.607 11.607-4.963-4.963-2.121 2.121 7.084 7.084 13.728-13.728z"/></svg>
+        </div>
+        <div>
+            <h3>Responsive & Retina Ready</h3>
+            <p>Unique layouts with the ability to control settings per each device and viewport.</p>
+        </div>
+    </div>
+
+    <div class="feature-box">
+        <div class="icon">
+            <svg viewBox="0 0 24 24"><path d="M20.285 2.859l-11.607 11.607-4.963-4.963-2.121 2.121 7.084 7.084 13.728-13.728z"/></svg>
+        </div>
+        <div>
+            <h3>Flexible & Customizable</h3>
+            <p>Mix and match anything, anywhere. Every element can be modified with ease.</p>
+        </div>
+    </div>
+
+    <div class="feature-box">
+        <div class="icon">
+            <svg viewBox="0 0 24 24"><path d="M20.285 2.859l-11.607 11.607-4.963-4.963-2.121 2.121 7.084 7.084 13.728-13.728z"/></svg>
+        </div>
+        <div>
+            <h3>Perfect Foundation</h3>
+            <p>Consistent workflow across the board helps you deliver the most ambitious ideas.</p>
+        </div>
+    </div>
+
+    <div class="feature-box">
+        <div class="icon">
+            <svg viewBox="0 0 24 24"><path d="M20.285 2.859l-11.607 11.607-4.963-4.963-2.121 2.121 7.084 7.084 13.728-13.728z"/></svg>
+        </div>
+        <div>
+            <h3>Easy Setup</h3>
+            <p>Easily install a starter site with just a few clicks via our simple demo importer module.</p>
+        </div>
+    </div>
+
+    <div class="feature-box">
+        <div class="icon">
+            <svg viewBox="0 0 24 24"><path d="M20.285 2.859l-11.607 11.607-4.963-4.963-2.121 2.121 7.084 7.084 13.728-13.728z"/></svg>
+        </div>
+        <div>
+            <h3>Optimized for Speed</h3>
+            <p>Optimised for speed to create a pleasant experience that really loads and feels fast.</p>
+        </div>
+    </div>
+</div>
+
+<div id="fourdivs">
+    <div class="images" id="imgoffourdivs-1"></div>
+    <div class="images" id="imgoffourdivs-2"></div>
+    <div class="images" id="imgoffourdivs-3"></div>
+    <div class="images" id="imgoffourdivs-4"></div>
+</div>
+<hr>
+<br>
+<div class="product-container">
+    
+    <div class="product-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6gu2wCCOWQrsrlqQoH730drqNQFV7yNgiAQ&s" alt="Product 1">
+      <div class="product-info">
+        <h3>Product 1</h3>
+        <p>Short description of product 1.</p>
+        <div class="price">$20.00</div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://i.pinimg.com/564x/cf/f8/05/cff805c5552cacf7c872311b59d6256a.jpg" alt="Product 2">
+      <div class="product-info">
+        <h3>Product 2</h3>
+        <p>Short description of product 2.</p>
+        <div class="price">$25.00</div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://i.pinimg.com/736x/45/f2/8d/45f28d25737eb08881ca1f5aa578de92.jpg" alt="Product 3">
+      <div class="product-info">
+        <h3>Product 3</h3>
+        <p>Short description of product 3.</p>
+        <div class="price">$30.00</div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://thumbs.dreamstime.com/b/unique-ceramic-mug-relief-carving-whimsical-forest-scene-each-tree-leaf-carved-precision-detail-316258044.jpg" alt="Product 4">
+      <div class="product-info">
+        <h3>Product 4</h3>
+        <p>Short description of product 4.</p>
+        <div class="price">$15.00</div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://freeformsnyc.com/cdn/shop/files/DSC_2687_9f8d5ead-cc22-4b28-901d-e96f89252d17_1024x.jpg?v=1716762923" alt="Product 5">
+      <div class="product-info">
+        <h3>Product 5</h3>
+        <p>Short description of product 5.</p>
+        <div class="price">$18.00</div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbYW7YiW3EuaBVBeANjp14FEjc6eRLvETSDQ&s" alt="Product 6">
+      <div class="product-info">
+        <h3>Product 6</h3>
+        <p>Short description of product 6.</p>
+        <div class="price">$22.00</div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXrO1q8iqguufNAJ_KiY9Djch0RAxdS5hVvA&s" alt="Product 7">
+      <div class="product-info">
+        <h3>Product 7</h3>
+        <p>Short description of product 7.</p>
+        <div class="price">$28.00</div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ375gwET050RdNwhC-GTjxlndPdQG7SEHGIA&s" alt="Product 8">
+      <div class="product-info">
+        <h3>Product 8</h3>
+        <p>Short description of product 8.</p>
+        <div class="price">$35.00</div>
+      </div>
+    </div>
+
+  </div>
+
+<!-- Footer Section -->
+<footer class="footer" id="Contact">
+    <div class="newsletter">
+  <h2>Stay Informed with Early Updates!</h2>
+  <p>Subscribe to our newsletter and receive the latest theme updates 
+     and important news directly to your inbox.</p>
+
+  <form id="newsletterForm" class="newsletter-form">
+  <input type="email" id="emailInput" placeholder="Your Email Address" required>
+  <button type="submit">Subscribe</button>
+  <div class="newsletter-agree">
+    <input type="checkbox" id="agree" required>
+    <label for="agree">
+      I agree to receive your newsletters and accept the data privacy statement.
+    </label>
+  </div>
+  </form>
+</div>
+<hr>
+  <div class="footer-columns">
+    <div class="footer-col">
+      <h4>Help & Support</h4>
+      <ul>
+        <li><a href="#">Documentation</a></li>
+        <li><a href="#">Support</a></li>
+        <li><a href="#">Video Tutorials</a></li>
+        <li><a href="#">Facebook Community</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Useful Links</h4>
+      <ul>
+        <li><a href="#">Blocksy Pro</a></li>
+        <li><a href="#">Blocksy Free vs Pro</a></li>
+        <li><a href="#">Starter Sites</a></li>
+        <li><a href="#">Blocksy Companion</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>More</h4>
+      <ul>
+        <li><a href="#">Changelog</a></li>
+        <li><a href="#">Affiliates</a></li>
+        <li><a href="#">Child Theme</a></li>
+        <li><a href="#">Feature Request</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Recommendations</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+      </ul>
+    </div>
+  </div>
+  <hr>
+  <h4>Copyright © 2025 - WordPress Theme by Creative Themes</h4>
+</footer>
+  
+    <script>
+const navbar = document.querySelector('nav');
+const hero = document.querySelector('#hero');
+
+window.addEventListener('scroll', () => {
+  const heroBottom = hero.offsetHeight;
+
+  if (window.scrollY > heroBottom - 50) { 
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});
+document.getElementById("newsletterForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+  
+  const email = document.getElementById("emailInput").value;
+
+  const res = await fetch("/subscribe", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email })
+  });
+
+  const data = await res.json();
+  alert(data.message);
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dummy Payment Page</title>
+    <style>
+        /* General body styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Payment box container */
+        .payment-box {
+            background-color: #fff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            width: 350px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        p {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        /* Form input styles */
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        input:focus {
+            border-color: #3399cc;
+            outline: none;
+        }
+
+        /* Pay button styles */
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        /* Optional: labels styling */
+        label {
+            font-weight: bold;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="payment-box">
+        <h1>Dummy Payment Page</h1>
+        <p>Total Amount: ₹500</p>
+
+        <form onsubmit="paymentSuccess(event)">
+            <label>Name on Card:</label>
+            <input type="text" name="name" placeholder="Enter your name" required />
+
+            <label>Card Number:</label>
+            <input type="text" name="card" placeholder="1234 5678 9012 3456" required />
+
+            <label>Expiry Date:</label>
+            <input type="text" name="expiry" placeholder="MM/YY" required />
+
+            <label>CVV:</label>
+            <input type="text" name="cvv" placeholder="123" required />
+
+            <button type="submit">Pay Now</button>
+        </form>
+    </div>
+
+    <script>
+        function paymentSuccess(e){
+            e.preventDefault();
+            alert("Payment Successful (Dummy)");
+            window.location.href = "mycart.html"; 
+        }
+    </script>
+</body>
+</html>

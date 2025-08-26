@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .product-details {
+      display: flex;
+      gap: 20px;
+    }
+    .product-details img {
+      max-width: 300px;
+      border-radius: 8px;
+    }
+    .info {
+      max-width: 500px;
+    }
+    .price {
+      color: green;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover { background: #555; }
+  </style>
+</head>
+<body>
+  <h1>Product Details</h1>
+  <div class="product-details">
+    <img id="product-img" src="" alt="">
+    <div class="info">
+      <h2 id="product-name"></h2>
+      <p id="product-desc"></p>
+      <p class="price" id="product-price"></p>
+      <button onclick="goBack()">Back to Shop</button>
+      <button id="addtocart">Add To Cart</button>
+    </div>
+  </div>
+
+  <script>
+    // Load product from localStorage
+    const product = JSON.parse(localStorage.getItem("product"));
+    if(product){
+      document.getElementById("product-name").textContent = product.name;
+      document.getElementById("product-desc").textContent = product.desc;
+      document.getElementById("product-price").textContent = "₹" + product.price;
+      document.getElementById("product-img").src = product.image;
+    }
+    function goBack() {
+      window.location.href = "shop.html";
+    }
+    document.getElementById("addtocart").addEventListener("click", async () => {
+      const email=localStorage.getItem('email');
+    try {
+      const res = await fetch("/add", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, product })
+      });
+
+      const data = await res.json();
+      alert(data.message);
+    } catch (err) {
+      console.error(err);
+      alert("Error adding to cart");
+    }
+  });
+   
+  </script>
+</body>
+</html>

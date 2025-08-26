@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0f0f16;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+    }
+
+    .login-container {
+      text-align: center;
+      width: 350px;
+    }
+
+    .logo {
+      font-size: 36px;
+      font-weight: bold;
+      font-family: cursive;
+      margin-bottom: 30px;
+    }
+
+    .input-field {
+      width: 90%;
+      padding: 15px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 30px;
+      background-color: #1e1e27;
+      color: white;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .sign-in-btn {
+      width: 100%;
+      padding: 15px;
+      margin-top: 20px;
+      border:2px solid #605f60;
+      border-radius: 30px;
+      background: linear-gradient(to right, #6a11cb, #fc4a1a);
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .links {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .links a {
+      color: white;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+ 
+ <form action="" id="loginForm">
+    <div class="login-container">
+    <div class="logo">Login</div>
+      <input type="email" name="email" placeholder="Email" required class="input-field" id="email"><br>
+      <input type="password" name="password" placeholder="Password" required class="input-field" ><br>
+      <button type="submit" class="sign-in-btn">Login</button>
+       <div class="links">
+      <a href="./signup.html">No account? Sign up!</a>
+      <a href="./forgotpassword.html">Forgot password?</a>
+    </div>
+  </div>
+  </form>
+<script>
+  const form = document.getElementById('loginForm');
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData);
+    const emailoflogged=document.getElementById('email').value;
+    localStorage.setItem('email',emailoflogged);
+    const res = await fetch('/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    const result = await res.json();
+    alert(result.message);
+    if(result.status === "SUCCESS") window.location.href = result.redirect;
+  });
+</script>
+
+</body>
+</html>

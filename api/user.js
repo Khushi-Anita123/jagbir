@@ -1,0 +1,13 @@
+const express = require('express');
+const router = express.Router();
+require('dotenv').config();
+const controller=require('../controller/userController');
+router.post('/signup',controller.Signup);
+router.get('/verifytoken/:token',controller.Verifytoken); 
+router.post('/login',controller.Login);
+router.post('/forgotpassword', controller.forgotPassword);
+router.post('/verifyotp', controller.verifyOtpAndChangePassword);
+router.post('/subscribe',controller.subscribe);
+router.post('/add',controller.add);
+router.get('/Mycart/:email',controller.getCartByEmail);
+module.exports = router;
